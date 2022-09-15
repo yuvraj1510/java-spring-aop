@@ -53,25 +53,36 @@
 * **Pointcut:** A predicate expression for where advice should be applied
     * **Expression Language:** execution(modifiers? return-type declaring-type? method-name(param) throws?)
         * ? - They are optional and we can skip if we don't need them.
-    * **Example - Match on method names:**
-        * Match only addAccount method in AccountDAO class
-        ```java
-        @Before("execution(public void com.ysingh.springaop.dao.AccountDAO.addAccount())")
-        ```
-        * Match only addAccount method in any class
-        ```java
-        @Before("execution(public void addAccount())")
-        ```
-        * Match methods starting with add in any class
-        ```java
-        @Before("execution(public void add*())")
-         ```
-    * **Example - Match on return type:**
-        * Match any return type
-        ```java
-        @Before("execution(public * add*())")
-        ```   
-    * [Example](src/main/java/com/ysingh/springaop/aspect/LoggingAspect.java) 
+        * **For Param:**
+            * **()** - matches a method with no arguments
+            * **(*)** - matches a method with one argument of any return type
+            * **(..)** - matches a method with 0 or more arguments of any return type
+        * **Example - Match on method names:**
+            * Match only addAccount method in AccountDAO class
+            ```java
+            @Before("execution(public void com.ysingh.springaop.dao.AccountDAO.addAccount())")
+            ```
+            * Match only addAccount method in any class
+            ```java
+            @Before("execution(public void addAccount())")
+            ```
+            * Match methods starting with add in any class
+            ```java
+            @Before("execution(public void add*())")
+            ```
+        * **Example - Match on return type:**
+            * Match any return type
+            ```java
+            @Before("execution(public * add*())")
+            ```   
+        * [Example](src/main/java/com/ysingh/springaop/aspect/LoggingAspect.java)
+    * **Declaration**
+        * **Example**
+            * Match DAO Package
+            ```java
+            @Pointcut("execution(* com.ysingh.springaop.dao.*.*(..))")
+            private void forDaoPackage() {}
+            ```
 
 ## Comparing Spring AOP and AspectJ
 * Spring AOP only supports
