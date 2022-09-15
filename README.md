@@ -77,12 +77,17 @@
             ```   
         * [Example](src/main/java/com/ysingh/springaop/aspect/LoggingAspect.java)
     * **Declaration**
+        * **Benefit**
+            * Easily reuse the pointcut expressions
+            * Update pointcut in one location
+            * Can also share and combine the pointcut expressions 
         * **Example**
             * Match DAO Package
             ```java
             @Pointcut("execution(* com.ysingh.springaop.dao.*.*(..))")
             private void forDaoPackage() {}
             ```
+        * [Example](src/main/java/com/ysingh/springaop/aspect/DeclarativeLoggingAspect.java.java)
 
 ## Comparing Spring AOP and AspectJ
 * Spring AOP only supports
