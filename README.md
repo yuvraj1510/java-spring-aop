@@ -44,7 +44,7 @@
 * **Aspect:** module of code for a cross-cutting concern (logging, security etc)
 * **Advice:** What action is taken and when it should be applied
     * **Before advice:** run before method
-        * [Example](src/main/java/com/ysingh/springaop/aspect/LoggingAspect.java)
+        * [Example](src/main/java/com/ysingh/springaop/expression/aspect/LoggingAspect.java)
     * **After finally advice:** run after the method (finally)
     * **After returning advice:** run after the method (success execution)
     * **After throwing advice:** run after the method (if exception thrown)
@@ -75,7 +75,7 @@
             ```java
             @Before("execution(public * add*())")
             ```   
-        * [Example](src/main/java/com/ysingh/springaop/aspect/LoggingAspect.java)
+        * [Example](src/main/java/com/ysingh/springaop/expression/aspect/LoggingAspect.java)
     * **Declaration**
         * **Benefit**
             * Easily reuse the pointcut expressions
@@ -87,7 +87,7 @@
             @Pointcut("execution(* com.ysingh.springaop.dao.*.*(..))")
             private void forDaoPackage() {}
             ```
-        * [Example](src/main/java/com/ysingh/springaop/aspect/DeclarativeLoggingAspect.java)
+        * [Example](src/main/java/com/ysingh/springaop/declarative/aspect/DeclarativeLoggingAspect.java)
 
 ## Comparing Spring AOP and AspectJ
 * Spring AOP only supports
