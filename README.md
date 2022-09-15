@@ -87,7 +87,7 @@
             @Pointcut("execution(* com.ysingh.springaop.dao.*.*(..))")
             private void forDaoPackage() {}
             ```
-        * [Example](src/main/java/com/ysingh/springaop/aspect/DeclarativeLoggingAspect.java.java)
+        * [Example](src/main/java/com/ysingh/springaop/aspect/DeclarativeLoggingAspect.java)
 
 ## Comparing Spring AOP and AspectJ
 * Spring AOP only supports
