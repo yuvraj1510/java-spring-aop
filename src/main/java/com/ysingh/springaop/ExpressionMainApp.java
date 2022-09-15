@@ -2,11 +2,11 @@ package com.ysingh.springaop;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.ysingh.springaop.dao.AccountDAO;
-import com.ysingh.springaop.dao.MembershipDAO;
-import com.ysingh.springaop.model.Account;
+import com.ysingh.springaop.expression.dao.AccountDAO;
+import com.ysingh.springaop.expression.dao.MembershipDAO;
+import com.ysingh.springaop.expression.model.Account;
 
-public class MainApp {
+public class ExpressionMainApp {
 
 	public static void main(String[] args) {
 		

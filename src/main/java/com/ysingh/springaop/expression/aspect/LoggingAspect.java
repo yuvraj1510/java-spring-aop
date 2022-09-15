@@ -1,4 +1,4 @@
-package com.ysingh.springaop.aspect;
+package com.ysingh.springaop.expression.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -15,7 +15,7 @@ public class LoggingAspect {
 		System.out.println("\n====>>> beforeAddAccountAdvice - Executing @Before advice on addAccount()");
 	}
 	
-	@Before("execution(public void com.ysingh.springaop.dao.AccountDAO.addAccount())")
+	@Before("execution(public void com.ysingh.springaop.expression.dao.AccountDAO.addAccount())")
 	public void beforeAccountDAOAddAccountAdvice() {
 		System.out.println("\n====>>> beforeAccountDAOAddAccountAdvice - Executing @Before advice only on AccountDAO addAccount()");
 	}
@@ -35,12 +35,12 @@ public class LoggingAspect {
 		System.out.println("\n====>>> beforeAnyReturnTypeMatchAdvice - Executing @Before advice on any return type method start with add");
 	}
 	
-	@Before("execution(* add*(com.ysingh.springaop.model.Account))")
+	@Before("execution(* add*(com.ysingh.springaop.expression.model.Account))")
 	public void beforeSpeficParameterMatchAdvice() {
 		System.out.println("\n====>>> beforeSpeficParameterMatchAdvice - Executing @Before advice on specific parameter matching");
 	}
 	
-	@Before("execution(* add*(com.ysingh.springaop.model.Account, ..))")
+	@Before("execution(* add*(com.ysingh.springaop.expression.model.Account, ..))")
 	public void beforeParameterMatchFollowedByAnyNumberOfArgumentAdvice() {
 		System.out.println("\n====>>> beforeParameterMatchFollowedByAnyNumberOfArgumentAdvice - Executing @Before advice on parameter matching followed by any number of arguments");
 	}
@@ -50,7 +50,7 @@ public class LoggingAspect {
 		System.out.println("\n====>>> beforeAnyParameterMatchAdvice - Executing @Before advice on match any parameter");
 	}
 	
-	@Before("execution(* com.ysingh.springaop.dao.*.*(..))")
+	@Before("execution(* com.ysingh.springaop.expression.dao.*.*(..))")
 	public void beforePackageNameMatchAdvice() {
 		System.out.println("\n====>>> beforePackageNameMatchAdvice - Executing @Before package name match parameter");
 	}

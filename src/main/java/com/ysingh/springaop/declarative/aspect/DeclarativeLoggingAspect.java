@@ -1,4 +1,4 @@
-package com.ysingh.springaop.aspect;
+package com.ysingh.springaop.declarative.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class DeclarativeLoggingAspect {
 
-	@Pointcut("execution(* com.ysingh.springaop.dao.*.*(..))")
+	@Pointcut("execution(* com.ysingh.springaop.declarative.dao.*.*(..))")
 	private void forDaoPackage() {}
 
-	@Pointcut("execution(* com.ysingh.springaop.dao.*.get*(..))")
+	@Pointcut("execution(* com.ysingh.springaop.declarative.dao.*.get*(..))")
 	private void getter() {}
 	
-	@Pointcut("execution(* com.ysingh.springaop.dao.*.set*(..))")
+	@Pointcut("execution(* com.ysingh.springaop.declarative.dao.*.set*(..))")
 	private void setter() {}
 	
 	@Pointcut("forDaoPackage() && !(getter() || setter())")

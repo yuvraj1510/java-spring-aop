@@ -1,8 +1,8 @@
-package com.ysingh.springaop.dao;
+package com.ysingh.springaop.expression.dao;
 
 import org.springframework.stereotype.Component;
 
-import com.ysingh.springaop.model.Account;
+import com.ysingh.springaop.expression.model.Account;
 
 @Component
 public class AccountDAO {

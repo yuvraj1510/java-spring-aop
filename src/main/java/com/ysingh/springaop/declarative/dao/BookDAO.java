@@ -1,4 +1,4 @@
-package com.ysingh.springaop.dao;
+package com.ysingh.springaop.declarative.dao;
 
 import org.springframework.stereotype.Component;
 

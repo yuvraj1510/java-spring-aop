@@ -2,16 +2,16 @@ package com.ysingh.springaop;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.ysingh.springaop.dao.BookDAO;
+import com.ysingh.springaop.declarative.dao.BookDAO;
 
-public class MainApp2 {
+public class DeclarativeMainApp {
 
 	public static void main(String[] args) {
 		
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 		
 		System.out.println("------- BOOK DAO STARTS -------");
-		BookDAO bookDAO = context.getBean(BookDAO.class);
+		com.ysingh.springaop.declarative.dao.BookDAO bookDAO = context.getBean(BookDAO.class);
 		
 		bookDAO.setId("ID-001");
 		bookDAO.setName("Java Fundamentals");

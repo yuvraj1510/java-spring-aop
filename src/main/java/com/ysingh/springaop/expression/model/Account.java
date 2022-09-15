@@ -1,4 +1,4 @@
-package com.ysingh.springaop.model;
+package com.ysingh.springaop.expression.model;
 
 public class Account {
 
