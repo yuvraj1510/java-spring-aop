@@ -3,9 +3,11 @@ package com.ysingh.springaop.joinpoint.aspect;
 import java.util.List;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -80,4 +82,16 @@ public class JoinPointBaseLoggingAspect {
 		System.out.println("\n=====>>> JoinPointBaseLoggingAspect - afterDeleteEquipmentAdvice: RELEASING CONNECTIONS");
 	}
 
+	@Around("execution(* com.ysingh.springaop.around.service.*.getFortune(..))")
+	public Object aroundGetFortune(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+		
+		long start = System.currentTimeMillis();
+		
+		Object proceed = proceedingJoinPoint.proceed();
+		
+		long end = System.currentTimeMillis();
+		
+		System.out.println("\n=====>>> Duration: " + (end - start)/1000.0 + " seconds");
+		return proceed;
+	}
 }

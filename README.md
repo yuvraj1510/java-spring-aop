@@ -44,14 +44,15 @@
 * **Aspect:** module of code for a cross-cutting concern (logging, security etc)
 * **Advice:** What action is taken and when it should be applied
     * **Before advice:** run before method
-        * [Example](src/main/java/com/ysingh/springaop/TestPointCutExpressionMainApp.java)
+        * [Example](src/main/java/com/ysingh/springaop/expression/aspect/LoggingAspect.java)
     * **After finally advice:** run after the method (finally)
-        * [Example](src/main/java/com/ysingh/springaop/TestAfterFinallyMainApp.java)
+        * [Example](src/main/java/com/ysingh/springaop/joinpoint/aspect/JoinPointBaseLoggingAspect.java)
     * **After returning advice:** run after the method (success execution)
-        * [Example](src/main/java/com/ysingh/springaop/TestAfterReturningMainApp.java)
+        * [Example](src/main/java/com/ysingh/springaop/joinpoint/aspect/JoinPointBaseLoggingAspect.java)
     * **After throwing advice:** run after the method (if exception thrown)
-        * [Example](src/main/java/com/ysingh/springaop/TestAfterThrowingMainApp.java)
+        * [Example](src/main/java/com/ysingh/springaop/joinpoint/aspect/JoinPointBaseLoggingAspect.java)
     * **Around advice:** run before and after the method
+        * [Example](src/main/java/com/ysingh/springaop/joinpoint/aspect/JoinPointBaseLoggingAspect.java)
 * **Join Point:** When to apply code during program execution
     * We can read the method arguments using JoinPoints.
     * **Example - Access and display method signature**
@@ -72,7 +73,7 @@
         }
     }
     ```
-    * [Example](src/main/java/com/ysingh/springaop/TestJoinPointMainApp.java)
+    * [Example](src/main/java/com/ysingh/springaop/joinpoint/aspect/JoinPointBaseLoggingAspect.java)
 * **Pointcut:** A predicate expression for where advice should be applied
     * **Expression Language:** 
     execution(modifiers? return-type declaring-type? method-name(param) throws?)
@@ -99,7 +100,7 @@
             ```java
             @Before("execution(public * add*())")
             ```   
-        * [Example](src/main/java/com/ysingh/springaop/TestPointCutExpressionMainApp.java)
+        * [Example](src/main/java/com/ysingh/springaop/expression/aspect/LoggingAspect.java)
     * **Declaration**
         * **Benefit**
             * Easily reuse the pointcut expressions
@@ -111,7 +112,7 @@
             @Pointcut("execution(* com.ysingh.springaop.dao.*.*(..))")
             private void forDaoPackage() {}
             ```
-        * [Example](src/main/java/com/ysingh/springaop/TestDeclarativePointCutMainApp.java)
+        * [Example](src/main/java/com/ysingh/springaop/declarative/aspect/DeclarativeLoggingAspect.java)
 
 ## Comparing Spring AOP and AspectJ
 * Spring AOP only supports
