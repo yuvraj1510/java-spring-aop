@@ -6,7 +6,7 @@ import com.ysingh.springaop.expression.dao.AccountDAO;
 import com.ysingh.springaop.expression.dao.MembershipDAO;
 import com.ysingh.springaop.expression.model.Account;
 
-public class ExpressionMainApp {
+public class TestPointCutExpressionMainApp {
 
 	public static void main(String[] args) {
 		

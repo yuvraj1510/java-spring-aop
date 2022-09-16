@@ -4,7 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.ysingh.springaop.declarative.dao.BookDAO;
 
-public class DeclarativeMainApp {
+public class TestDeclarativePointCutMainApp {
 
 	public static void main(String[] args) {
 		

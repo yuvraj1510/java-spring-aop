@@ -44,14 +44,38 @@
 * **Aspect:** module of code for a cross-cutting concern (logging, security etc)
 * **Advice:** What action is taken and when it should be applied
     * **Before advice:** run before method
-        * [Example](src/main/java/com/ysingh/springaop/expression/aspect/LoggingAspect.java)
+        * [Example](src/main/java/com/ysingh/springaop/TestPointCutExpressionMainApp.java)
     * **After finally advice:** run after the method (finally)
+        * [Example](src/main/java/com/ysingh/springaop/TestAfterFinallyMainApp.java)
     * **After returning advice:** run after the method (success execution)
+        * [Example](src/main/java/com/ysingh/springaop/TestAfterReturningMainApp.java)
     * **After throwing advice:** run after the method (if exception thrown)
+        * [Example](src/main/java/com/ysingh/springaop/TestAfterThrowingMainApp.java)
     * **Around advice:** run before and after the method
-* **Joint Point:** When to apply code during program execution
+* **Join Point:** When to apply code during program execution
+    * We can read the method arguments using JoinPoints.
+    * **Example - Access and display method signature**
+    ```java
+    @Before("execution(public void addAccount())")
+    public void beforeAddAccountAdvice(JoinPoint joinPoint) {
+        MethodSignature methodSig = (MethodSignature) joinPoint.getSignature();
+        System.out.println(methodSig);
+    }
+    ```
+    * **Example - Access and display method signature**
+    ```java
+    @Before("execution(public void addAccount(com.ysingh.springaop.expression.model.Account, ..))")
+    public void beforeAddAccountAdvice(JoinPoint joinPoint) {
+        Object[] args = joinPoint.getArgs();
+        for(Object arg : args) {
+            System.out.println(arg);
+        }
+    }
+    ```
+    * [Example](src/main/java/com/ysingh/springaop/TestJoinPointMainApp.java)
 * **Pointcut:** A predicate expression for where advice should be applied
-    * **Expression Language:** execution(modifiers? return-type declaring-type? method-name(param) throws?)
+    * **Expression Language:** 
+    execution(modifiers? return-type declaring-type? method-name(param) throws?)
         * ? - They are optional and we can skip if we don't need them.
         * **For Param:**
             * **()** - matches a method with no arguments
@@ -75,7 +99,7 @@
             ```java
             @Before("execution(public * add*())")
             ```   
-        * [Example](src/main/java/com/ysingh/springaop/expression/aspect/LoggingAspect.java)
+        * [Example](src/main/java/com/ysingh/springaop/TestPointCutExpressionMainApp.java)
     * **Declaration**
         * **Benefit**
             * Easily reuse the pointcut expressions
@@ -87,14 +111,14 @@
             @Pointcut("execution(* com.ysingh.springaop.dao.*.*(..))")
             private void forDaoPackage() {}
             ```
-        * [Example](src/main/java/com/ysingh/springaop/declarative/aspect/DeclarativeLoggingAspect.java)
+        * [Example](src/main/java/com/ysingh/springaop/TestDeclarativePointCutMainApp.java)
 
 ## Comparing Spring AOP and AspectJ
 * Spring AOP only supports
-    * Method-level joint points
+    * Method-level join points
     * Run-time code weaving (slower than AspectJ)
 * AspectJ supports
-    * joint points: method-level, constructor, field
+    * join points: method-level, constructor, field
     * weaving: compile-time, post compile-time and load-time
 
 
