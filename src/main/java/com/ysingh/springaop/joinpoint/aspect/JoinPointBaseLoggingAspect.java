@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
 import com.ysingh.springaop.joinpoint.dao.EquipmentDAO;
 
 @Aspect
-
 @Order(3)
 @Component
 public class JoinPointBaseLoggingAspect {
